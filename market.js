@@ -1,6 +1,6 @@
 export const TOKENS = Object.freeze([
- {id:'robotcyb',name:'RobotCYB',mint:'8WZiguAp8NyFnwm8Z97k6sCbSRCWaW1YYXKeCTpupump'},
- {id:'cicadafarm',name:'CicadaFarm',mint:'9QLCEL7Xo9VTwgBeAYU1PWX7JJ8joKxQCYw3msjUpump'}
+ {id:'robotcyb',name:'RobotCYB',icon:'icons/tokens/robotcyb.jpg',mint:'8WZiguAp8NyFnwm8Z97k6sCbSRCWaW1YYXKeCTpupump'},
+ {id:'cicadafarm',name:'CicadaFarm',icon:'icons/tokens/cicadafarm.png',mint:'9QLCEL7Xo9VTwgBeAYU1PWX7JJ8joKxQCYw3msjUpump'}
 ]);
 export const SOL='So11111111111111111111111111111111111111112';
 export const USDT='Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB';

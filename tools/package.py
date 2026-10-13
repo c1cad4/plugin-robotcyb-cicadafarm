@@ -3,7 +3,7 @@ from pathlib import Path
 import hashlib, json, zipfile
 root = Path(__file__).resolve().parents[1]
 version = json.loads((root / 'manifest.json').read_text())['version']
-files = ['manifest.json', 'background.js', 'market.js', 'popup.html', 'popup.js', 'popup.css', 'PRIVACY.md', 'README.md', 'LICENSE']
+files = ['manifest.json', 'background.js', 'market.js', 'popup.html', 'popup.js', 'popup.css', 'PRIVACY.md', 'README.md', 'LICENSE', 'icons/tokens/robotcyb.jpg', 'icons/tokens/cicadafarm.png', 'icons/tokens/SOURCES.md']
 files += [f'icons/{size}.png' for size in [16, 32, 48, 128]]
 dist = root / 'dist'
 dist.mkdir(exist_ok=True)

@@ -1,0 +1,22 @@
+{
+ "name":"RobotCYB & CicadaFarm — Token Prices",
+ "version":"1.0.1",
+ "website":"https://github.com/c1cad4/plugin-robotcyb-cicadafarm",
+ "support":"https://github.com/c1cad4/plugin-robotcyb-cicadafarm/issues",
+ "privacy":"https://github.com/c1cad4/plugin-robotcyb-cicadafarm/blob/main/PRIVACY.md",
+ "single_purpose":"Display read-only market prices for RobotCYB and CicadaFarm, two fixed Solana token mints, denominated in USDT and SOL.",
+ "locales":{
+  "en":{"summary":"RobotCYB and CicadaFarm prices in USDT and SOL, with token logos, source status and local observation history.","description":"Follow RobotCYB and CicadaFarm from your browser. The popup displays both token logos, prices in USDT and SOL, available 24-hour changes, source links and the time each quote was fetched. Expand the panel into a browser tab for a wider view.\n\nRobotCYB uses its confirmed RobotCYB/SOL GeckoTerminal pool. CicadaFarm uses exact-mint Solana pools from DEX Screener. USDT cross-rates use its observed USD price rather than assuming a one-dollar peg. A clearly labelled Pump.fun market-cap estimate can be used only as a fallback.\n\nUpdates run about once a minute while the browser is active; background scheduling can delay them. Local history contains up to 120 observations, not exchange OHLC candles. Missing or stale quotes are labelled. Indicative prices do not include trading fees, slippage or an executable swap.\n\nNo wallet, seed phrase or account is requested. The extension does not read browsing history or page content, and does not sign or submit transactions. JavaScript, styles and token images are bundled locally.\n\nInterface languages: English and Russian."},
+  "ru":{"summary":"Цены RobotCYB и CicadaFarm в USDT и SOL: значки токенов, источники котировок и локальная история наблюдений.","description":"Следите за RobotCYB и CicadaFarm прямо в браузере. В карточках — значки токенов, цены в USDT и SOL, доступное изменение за сутки, ссылки на источники и время получения. Панель можно развернуть в отдельную вкладку.\n\nRobotCYB использует подтверждённый пул RobotCYB/SOL GeckoTerminal. Для CicadaFarm выбираются пулы Solana по точному mint-адресу в DEX Screener. USDT пересчитывается по его наблюдаемой цене USD. Оценка капитализации Pump.fun используется только как явно подписанный запасной источник.\n\nОбновление — примерно раз в минуту; браузер может задерживать фоновые задачи. История содержит до 120 собственных наблюдений и не является биржевым OHLC-графиком. Отсутствующие и устаревшие данные подписаны. Цены ориентировочные, без комиссий и проскальзывания.\n\nКошелёк, seed-фраза и аккаунт не нужны. Расширение не читает историю браузера и содержимое страниц, не подписывает и не отправляет транзакции. Код, стили и значки включены в пакет локально.\n\nИнтерфейс: русский и английский."}
+ },
+ "permissions":{
+  "storage":"Save language preference, latest public quotes and at most 120 local price observations per token.",
+  "alarms":"Schedule public quote refreshes approximately once a minute while the browser is running.",
+  "https://api.geckoterminal.com/*":"Read the exact confirmed RobotCYB/SOL pool and verify its token identities.",
+  "https://api.dexscreener.com/*":"Read CicadaFarm pools and SOL/USDT reference prices using fixed public mint addresses.",
+  "https://frontend-api-v3.pump.fun/*":"Read matching token metadata only as a fallback for unavailable DEX quotes; label market-cap estimates explicitly."
+ },
+ "remote_executable_code":false,
+ "operator_analytics":false,
+ "reviewer_notes":"No credentials or wallet are required. Click the toolbar action to view both tokens; use RU/EN and Expand. Prices depend on third-party API availability. If a source is unavailable, the previous quote retains its timestamp and an error label. Tests cover incorrect pool/mint identity, conversion, bounded responses/history and offline cache. Source and privacy policy are public."
+}

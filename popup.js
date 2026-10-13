@@ -5,9 +5,9 @@ const text=(v)=>Number.isFinite(v)?new Intl.NumberFormat(language,{maximumSignif
 function chart(canvas,points){const c=canvas.getContext('2d');c.clearRect(0,0,canvas.width,canvas.height);if(points.length<2)return;
  const min=Math.min(...points.map(p=>p.usd)),max=Math.max(...points.map(p=>p.usd)),span=max-min||max*.01||1;
  c.strokeStyle='#7cffbb';c.lineWidth=2;c.beginPath();points.forEach((p,i)=>{const x=4+i/(points.length-1)*(canvas.width-8),y=canvas.height-7-(p.usd-min)/span*(canvas.height-14);if(i)c.lineTo(x,y);else c.moveTo(x,y)});c.stroke();}
-function render(){const t=dictionary[language];document.documentElement.lang=language;document.querySelector('#language').value=language;document.querySelector('#refresh').textContent=t.refresh;document.querySelector('#note').textContent=t.note;
+function render(){const t=dictionary[language];document.documentElement.lang=language;document.querySelector('#language').value=language;document.querySelector('#refresh').textContent=t.refresh;document.querySelector('#expand').textContent=language==='ru'?'Развернуть ↗':'Expand ↗';document.querySelector('#note').textContent=t.note;
  const cards=document.querySelector('#cards');cards.replaceChildren();for(const token of TOKENS){const fragment=document.querySelector('#card').content.cloneNode(true),entry=snapshot.entries?.[token.id]??{};
- fragment.querySelector('h2').textContent=token.name;fragment.querySelector('.usdt').textContent=text(entry.usdt);fragment.querySelector('.sol').textContent=text(entry.sol);
+ fragment.querySelector('h2').textContent=token.name;fragment.querySelector('.token-icon').src=token.icon;fragment.querySelector('.token-icon').alt=token.name+' logo';fragment.querySelector('.usdt').textContent=text(entry.usdt);fragment.querySelector('.sol').textContent=text(entry.sol);
  const change=fragment.querySelector('.change');if(Number.isFinite(entry.change)){change.textContent=`${entry.change>0?'+':''}${text(entry.change)}% / 24h`;change.classList.add(entry.change>=0?'positive':'negative');}
  const stale=entry.time&&Date.now()-entry.time>120000;fragment.querySelector('.message').textContent=entry.error==='no-market'?t.missing:entry.error==='network-error'?t.network:entry.error==='conversion-unavailable'?t.convert:stale?t.stale:'';
  if(entry.source==='pump-estimate'){

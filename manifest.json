@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "minimum_chrome_version": "120",
   "name": "RobotCYB & CicadaFarm — Token Prices",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "RobotCYB and CicadaFarm prices in USDT and SOL. Market sources, local history and transparent data status.",
   "permissions": [
     "storage",
